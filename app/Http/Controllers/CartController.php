@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCartRequest;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Resources\CartResource;
 use App\Models\Cart;
@@ -14,7 +15,7 @@ class CartController extends Controller
         return CartResource::collection(Cart::all());
     }
 
-    public function store(StoreProductRequest $request)
+    public function store(StoreCartRequest $request)
     {
         $data = $request->validated();
 
