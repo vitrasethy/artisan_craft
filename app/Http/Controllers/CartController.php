@@ -12,7 +12,7 @@ class CartController extends Controller
 {
     public function index()
     {
-        return CartResource::collection(Cart::all());
+        return CartResource::collection(Cart::with('product')->get());
     }
 
     public function store(StoreCartRequest $request)
