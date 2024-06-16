@@ -11,6 +11,10 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/users', function () {
+    return auth()->user();
+})->middleware('auth:sanctum');
+
 // User register account and login account
 Route::post('/register', [RegisteredUserController::class, 'store']);
 Route::post('/login', [AuthenticatedSessionController::class, 'store']);
